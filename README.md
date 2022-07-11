@@ -9,8 +9,11 @@ Run
 
     $npm run start
 
-Additional
+Additional Controller
 
     $nest g resource [name]
 
-    
+Additonal service
+
+    $delete cats.service.ts
+    $nest g service cats
