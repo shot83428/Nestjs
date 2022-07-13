@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, Res, Req, Header, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, Res, Req, Header, ParseIntPipe, ParseUUIDPipe } from '@nestjs/common';
 import { Request } from 'express';
 import { Response } from 'express';
 import { CatsService } from './cats.service';
@@ -49,10 +49,9 @@ export class CatsController {
   }
 
   @Get(':uuid')
-  async findOneuuid(@Param('uuid',ParseIntPipe) id: string) {
+  async findOneuuid(@Param('uuid',ParseUUIDPipe) id: string) {
     console.log(id.split('=')[1])
     return this.catsService.findOne(+id.split('=')[1]);
-    //return this.catsService.findOne(+id);
   }
 
   @Patch(':id')
